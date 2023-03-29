@@ -5,8 +5,8 @@ function []=ima(A)
 % and scales to interval [0,20]
 
 a1=squeeze(A);
-a1=(a1-min(min(a1))*ones(size(a1)));
-a1=(20/max(max(a1)))*a1;
+a1=(a1-min(min(a1))*ones(size(a1))); %justerar värdena så minsta värdet blir noll, subtraherar minsta värdet från alla element
+a1=(20/max(max(a1)))*a1; %Justerar värdena så de blir på skala 0-20, med 20 steg. 20 dividerat på största värdet är ett steg
 
 mymap1 =[1.0000    1.0000    1.0000
     0.8715    0.9028    0.9028
@@ -18,7 +18,8 @@ mymap1 =[1.0000    1.0000    1.0000
     0.1944    0.1944    0.3194
     0.0972    0.0972    0.1806
          0         0    0.0417];
-colormap(mymap1)
+colormap(mymap1)%kolumner är r, g , b, sätter vilka färger bilden ska vara
+%varje rad är en färg
 
 image(a1)
 axis off
