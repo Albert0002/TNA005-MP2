@@ -3,7 +3,7 @@ function [y_result, index] = nearest_neighbor_func(x, data, answer)
     y = data(:,1);                              % Fetch first digit from trainingData
     y_result = y;
     
-    n = length(data)
+    n = size(data, 2);
     norm_results = zeros(n,1);                          % Allocate norm_results
     
     shortest_norm = norm(x-y);                          % Check first digit/vector
