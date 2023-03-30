@@ -18,7 +18,7 @@ n = size(testData, 2);
 result = zeros(n,3);
 result(:,1) = testAns;
     
-for i= 1:n
+for i = 1:n
     x = testData(:,i); 
     [y_result, digit, norm] = nearest_neighbor_func(x, v, 0:n-1);
    
@@ -29,7 +29,7 @@ end
 
 m = length(result)
 
-percents = zeros(10, 3);
+
 % for j = 1:10
 %     lookingfor = j-1;
 %     for i = 1:m
@@ -42,7 +42,10 @@ percents = zeros(10, 3);
 % end
 
 
+sum_results = zeros(10, 3);
 
-
-
-
+for i = 1:10
+    sum_results(i,1) = sum(result(:,1) == i-1);
+    sum_results(i,2) = sum((result(:,1) == i-1) & (result(:,1) == result(:,2)));
+    sum_results(i,3) = (sum_results(i,2) / sum_results(i,1) * 100)
+end
