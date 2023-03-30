@@ -1,9 +1,9 @@
-function [y_result, index] = nearest_neighbor_func(x, trainingData, trainAns)
+function [y_result, index] = nearest_neighbor_func(x, data, answer)
 
-    y = trainingData(:,1);                              % Fetch first digit from trainingData
+    y = data(:,1);                              % Fetch first digit from trainingData
     y_result = y;
     
-    n = length(trainingData);
+    n = length(data)
     norm_results = zeros(n,1);                          % Allocate norm_results
     
     shortest_norm = norm(x-y);                          % Check first digit/vector
@@ -11,7 +11,7 @@ function [y_result, index] = nearest_neighbor_func(x, trainingData, trainAns)
     y_index = 1;
     
     for i = 2:n
-        y = trainingData(:,i);
+        y = data(:,i);
         temp_norm = norm(x-y);
         norm_results(i) = temp_norm;
         if temp_norm < shortest_norm
@@ -21,5 +21,5 @@ function [y_result, index] = nearest_neighbor_func(x, trainingData, trainAns)
         end
     end
     
-    index = trainAns(y_index);
+    index = answer(y_index);
 end
