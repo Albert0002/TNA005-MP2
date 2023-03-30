@@ -14,7 +14,35 @@ end
 
 %% Test phase
 
-x = testData(:,8); 
+n = size(testData, 2);
+result = zeros(n,3);
+result(:,1) = testAns;
+    
+for i= 1:n
+    x = testData(:,i); 
+    [y_result, digit, norm] = nearest_neighbor_func(x, v, 0:n-1);
+   
+    result(i,2) = digit;
+    
+    result(i,3) = norm;
+end
 
-[y_result, index] = nearest_neighbor_func(x, v, 0:9);
-index
+m = length(result)
+
+percents = zeros(10, 3);
+% for j = 1:10
+%     lookingfor = j-1;
+%     for i = 1:m
+%         if result(i, 1) == lookingfor && result(i, 2) == lookingfor
+%             percents(j, 1) = percents(j, 1) + 1;
+%         end
+%         percents(j, 2) = percents(j, 1) + 1;
+%     end
+%     percents(j, 3) = abs(percents(j, 1)/percents(j, 2));
+% end
+
+
+
+
+
+
