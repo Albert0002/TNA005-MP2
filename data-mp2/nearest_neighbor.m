@@ -8,25 +8,14 @@ testData = reshape(testDigits, [256,2007]);         % Reshapes test data from 3D
 
 x = testData(:,1);                                  % Fetch first digit from testData
 
-y = trainingData(:,1);                              % Fetch first digit from trainingData
-y_result = y;
+[y, index] = nearest_neighbor_func(x, trainingData, trainAns)
 
-n = length(trainingData);
-norm_results = zeros(n,1);                          % Allocate norm_results
+x = reshape(x, [16,16]);
+y = reshape(y, [16,16]);
 
-shortest_norm = norm(x-y);                          % Check first digit/vector
-norm_results(1) = shortest_norm;                    % Add result to list
-y_index = 1;
+figure(1)
+ima(x)
 
-for i = 2:n
-    y = trainingData(:,i);
-    temp_norm = norm(x-y);
-    norm_results(i) = temp_norm;
-    if temp_norm < shortest_norm
-        shortest_norm = temp_norm;
-        y_result = y;
-        y_index = i;
-    end
-end
+figure(2)
+ima(y)
 
-result = trainAns(y_index)
