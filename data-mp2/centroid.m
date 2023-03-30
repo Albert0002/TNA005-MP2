@@ -11,5 +11,8 @@ v = zeros(256, 10);
 for i = 1:10
     v(:,i) = create_model(i-1, trainingData, trainAns, testData);
 end
-number = 7;
-ima(reshape(v(:,number+1), [16, 16]));
+
+x = testData(:,1); 
+
+[y_result, index] = nearest_neighbor_func(x, v, 0:9);
+index
