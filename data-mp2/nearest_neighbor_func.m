@@ -1,9 +1,9 @@
-function [y_result, digit, shortest_norm] = nearest_neighbor_func(x, data, answer)
+function [y_result_vector, y_result_digit, shortest_norm] = nearest_neighbor_func(x, data, answer)
 
-    y = data(:,1);                              % Fetch first digit from trainingData
-    y_result = y;                               % Sets a first value
+    y = data(:,1);                                      % Fetch first digit from trainingData
+    y_result_vector = y;                               % Sets a first value
     
-    n = size(data, 2);                          % Number of columns
+    n = size(data, 2);                                  % Number of columns
     norm_results = zeros(n,1);                          % Allocate norm_results
     
     shortest_norm = norm(x-y);                          % Check first digit/vector distance
@@ -16,14 +16,10 @@ function [y_result, digit, shortest_norm] = nearest_neighbor_func(x, data, answe
         norm_results(i) = temp_norm;
         if temp_norm < shortest_norm                    % If temp < shortest, sets new shortest, sets result
             shortest_norm = temp_norm;
-            y_result = y;                               % Nearest digit vector
+            y_result_vector = y;                        % Nearest digit vector
             y_index = i;                                % Index for nearest digit vector
         end
     end
-    
-<<<<<<< Updated upstream
-    digit = answer(y_index);
-=======
-    digit = answer(y_index);                            % The nearest digit
->>>>>>> Stashed changes
+
+    y_result_digit = answer(y_index);                   % The nearest digit
 end

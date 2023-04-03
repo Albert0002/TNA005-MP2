@@ -12,9 +12,9 @@ correctCounter = 0;
 for i = 1:n
     x = testData(:,i);                                  % Fetch first digit from testData
     
-    [y, digit] = nearest_neighbor_func(x, trainingData, trainAns);
+    [y, y_result_digit] = nearest_neighbor_func(x, trainingData, trainAns);
 
-    if digit == testAns(i)
+    if y_result_digit == testAns(i)
         correctCounter = correctCounter + 1;
     end
 
