@@ -1,4 +1,4 @@
-function [y_result, y_actual, shortest_norm] = nearest_neighbor_func(x, data, answer)
+function [y_result, digit, shortest_norm] = nearest_neighbor_func(x, data, answer)
 
     y = data(:,1);                              % Fetch first digit from trainingData
     y_result = y;
@@ -21,5 +21,5 @@ function [y_result, y_actual, shortest_norm] = nearest_neighbor_func(x, data, an
         end
     end
     
-    y_actual = answer(y_index);
+    digit = answer(y_index);
 end

@@ -20,12 +20,15 @@ result(:,1) = testAns;
     
 for i = 1:n
     x = testData(:,i); 
-    [y_result, y_actual, norm] = nearest_neighbor_func(x, v, 0:n-1);
+    [y_result, digit, norm] = nearest_neighbor_func(x, v, 0:n-1);
    
-    result(i,2) = y_actual;
+    result(i,2) = digit;
     
     result(i,3) = norm;
 end
+
+m = length(result)
+
 
 % for j = 1:10
 %     lookingfor = j-1;
@@ -44,5 +47,5 @@ sum_results = zeros(10, 3);
 for i = 1:10
     sum_results(i,1) = sum(result(:,1) == i-1);
     sum_results(i,2) = sum((result(:,1) == i-1) & (result(:,1) == result(:,2)));
-    sum_results(i,3) = (sum_results(i,2) / sum_results(i,1) * 100);
+    sum_results(i,3) = (sum_results(i,2) / sum_results(i,1) * 100)
 end
