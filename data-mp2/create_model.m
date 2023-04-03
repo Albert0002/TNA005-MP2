@@ -8,6 +8,6 @@ function modelForDigit = create_model(x, trainingData, trainAns, testData)
             foundDigits(:, end+1) = trainingData(:, i);
         end
     end
-    modelForDigit = mean(foundDigits, 2)
+    modelForDigit = mean(foundDigits, 2);
 end
 

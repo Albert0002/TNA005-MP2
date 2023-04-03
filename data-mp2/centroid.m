@@ -1,8 +1,5 @@
 load("uspsDigits.mat"); % Load data
 
-%% Test data
-testData = reshape(testDigits, [256,2007]);         % Reshapes test data from 3D-matrix to 2D. Column by column (each 16x16 becomes 256x1)
-
 %% Training phase
 trainingData = reshape(trainDigits, [256,7291]);    % Reshapes training data from 3D-matrix to 2D. Column by column (each 16x16 becomes 256x1)
 
@@ -13,6 +10,7 @@ for i = 1:10
 end
 
 %% Test phase
+testData = reshape(testDigits, [256,2007]);         % Reshapes test data from 3D-matrix to 2D. Column by column (each 16x16 becomes 256x1)
 
 n = size(testData, 2);
 result = zeros(n,3);
@@ -27,12 +25,10 @@ for i = 1:n
     result(i,3) = norm;
 end
 
-
-
 sum_results = zeros(10, 3);
 
 for i = 1:10
     sum_results(i,1) = sum(result(:,1) == i-1);
     sum_results(i,2) = sum((result(:,1) == i-1) & (result(:,1) == result(:,2)));
-    sum_results(i,3) = (sum_results(i,2) / sum_results(i,1) * 100)
+    sum_results(i,3) = (sum_results(i,2) / sum_results(i,1) * 100);
 end
