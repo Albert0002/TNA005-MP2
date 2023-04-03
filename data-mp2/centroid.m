@@ -22,24 +22,11 @@ for i = 1:n
     x = testData(:,i); 
     [y_result, y_result_digit, norm] = nearest_neighbor_func(x, v, 0:n-1);
    
-    result(i,2) = y_result_digit;
+    result(i,2) = y_result_digit; %what the model thinks the number is (the output)
     
     result(i,3) = norm;
 end
 
-m = length(result)
-
-
-% for j = 1:10
-%     lookingfor = j-1;
-%     for i = 1:m
-%         if result(i, 1) == lookingfor && result(i, 2) == lookingfor
-%             percents(j, 1) = percents(j, 1) + 1;
-%         end
-%         percents(j, 2) = percents(j, 1) + 1;
-%     end
-%     percents(j, 3) = abs(percents(j, 1)/percents(j, 2));
-% end
 
 
 sum_results = zeros(10, 3);
