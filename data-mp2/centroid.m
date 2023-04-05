@@ -18,11 +18,12 @@ result(:,1) = testAns;
     
 for i = 1:n
     x = testData(:,i); 
-    [y_result, y_result_digit, norm] = nearest_neighbor_func(x, v, 0:n-1);
+    [y_result, y_result_digit, y_index, norm] = nearest_neighbor_func(x, v, 0:n-1);
    
     result(i,2) = y_result_digit; %what the model thinks the number is (the output)
     
     result(i,3) = norm;
+    result(i,4) = y_index;
 end
 
 sum_results = zeros(10, 3);
