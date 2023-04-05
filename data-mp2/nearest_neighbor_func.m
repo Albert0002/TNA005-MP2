@@ -1,7 +1,7 @@
 function [y_result_vector, y_result_digit, shortest_norm] = nearest_neighbor_func(x, data, answer)
 
     y = data(:,1);                                      % Fetch first digit from trainingData
-    y_result_vector = y;                               % Sets a first value
+    y_result_vector = y;                                % Sets a first value
     
     n = size(data, 2);                                  % Number of columns
     norm_results = zeros(n,1);                          % Allocate norm_results
