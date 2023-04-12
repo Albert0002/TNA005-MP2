@@ -5,12 +5,13 @@ trainingData = reshape(trainDigits, [256,7291]);    % Reshapes training data fro
 
 v = zeros(256, 10);
 
+testData = reshape(testDigits, [256,2007]);         % Reshapes test data from 3D-matrix to 2D. Column by column (each 16x16 becomes 256x1)
+
 for i = 1:10
     v(:,i) = create_model(i-1, trainingData, trainAns, testData);
 end
 
 %% Test phase
-testData = reshape(testDigits, [256,2007]);         % Reshapes test data from 3D-matrix to 2D. Column by column (each 16x16 becomes 256x1)
 
 n = size(testData, 2);
 result = zeros(n,3);
